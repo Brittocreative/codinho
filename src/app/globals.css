@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #4a90e2;
+  --primary-dark: #3a7bc8;
+  --secondary: #9c27b0;
+  --secondary-dark: #7b1fa2;
+  --success: #4caf50;
+  --warning: #ff9800;
+  --error: #f44336;
+  --background: #f5f7fa;
+  --foreground: #333333;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@layer base {
+  h1 {
+    @apply text-3xl font-bold mb-4;
+  }
+  h2 {
+    @apply text-2xl font-bold mb-3;
+  }
+  h3 {
+    @apply text-xl font-bold mb-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-600;
+  }
+  
+  .btn-secondary {
+    @apply bg-purple-500 text-white hover:bg-purple-600;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-lg overflow-hidden;
+  }
+  
+  .container-app {
+    @apply max-w-5xl mx-auto px-4 py-6;
+  }
+  
+  .character {
+    @apply relative inline-block;
+  }
+  
+  .character-bubble {
+    @apply bg-white rounded-2xl p-4 shadow-md relative;
+  }
+  
+  .character-bubble:after {
+    content: '';
+    @apply absolute w-4 h-4 bg-white transform rotate-45;
+  }
+  
+  .block-container {
+    @apply flex flex-wrap gap-2 p-4 bg-gray-100 rounded-xl;
+  }
+  
+  .programming-block {
+    @apply w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold shadow-md cursor-grab transition-transform duration-200 hover:scale-110;
+  }
+  
+  .number-block {
+    @apply bg-blue-500;
+  }
+  
+  .operation-block {
+    @apply bg-green-500;
+  }
+  
+  .equals-block {
+    @apply bg-amber-500;
+  }
+  
+  .achievement-card {
+    @apply flex items-center p-4 bg-white rounded-xl shadow-md mb-3;
+  }
+  
+  .achievement-icon {
+    @apply w-12 h-12 rounded-full flex items-center justify-center mr-4;
+  }
+  
+  .level-badge {
+    @apply w-16 h-16 rounded-full bg-white shadow-md flex flex-col items-center justify-center;
+  }
+}
+
+/* Animações */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.5s ease-out;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 1.5s steps(40, end);
+}
+
+/* Confetti animation */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f00;
+  border-radius: 50%;
+  animation: confetti-fall 3s ease-in infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
