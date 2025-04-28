@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Codinho - Brinque e Programe",
-  description: "Aplicativo educacional para ensinar programação a crianças de forma divertida e interativa",
+  title: "CodeWars PT-BR - Desafios de Programação",
+  description: "Plataforma de desafios de programação para desenvolvedores brasileiros aprimorarem suas habilidades",
 };
 
 export default function RootLayout({
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <main className="min-h-screen">{children}</main>
+        <AuthProvider>
+          <main className="min-h-screen">{children}</main>
+        </AuthProvider>
       </body>
     </html>
   );
