@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "ES2017",
     "types": [
-    "node"
+    "node",
     "jest"
-   ]
+   ],
     "lib": [
       "dom",
       "dom.iterable",
